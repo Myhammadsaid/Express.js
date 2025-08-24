@@ -4,8 +4,8 @@ import * as uuid from 'uuid'
 class FileService {
 	saveFile(file) {
 		try {
-			const fileName = uuid.v4() + '.jpg'
-			const filePath = path.resolve('static', fileName)
+			const fileName = uuid.v4() + path.extname(file.name)
+			const filePath = path.resolve('public', fileName)
 			file.mv(filePath)
 			return fileName
 		} catch (error) {
